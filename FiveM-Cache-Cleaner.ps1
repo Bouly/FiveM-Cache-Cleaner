@@ -10,6 +10,50 @@ Add-Type -AssemblyName System.Drawing
 #                                                            Function                                                        #
 ##############################################################################################################################
 
+#############################################
+#                   Visible                 #
+#############################################
+
+function ButtonClear_Visible {
+    $ButtonClear.Visible = $true
+    $ButtonPreload.Visible = $true
+    $ButtonSettings.Visible = $true
+}
+
+function ButtonPreload_Visible {
+    $ButtonClear.Visible = $true
+    $ButtonPreload.Visible = $true
+    $ButtonSettings.Visible = $true
+}
+
+function ButtonSettings_Visible {
+    $ButtonClear.Visible = $true
+    $ButtonPreload.Visible = $true
+    $ButtonSettings.Visible = $true
+}
+
+#############################################
+#                  Invisible                #
+#############################################
+
+function ButtonClear_Invisible {
+    $ButtonClear.Visible = $false
+    $ButtonPreload.Visible = $false
+    $ButtonSettings.Visible = $false
+}
+
+function ButtonPreload_Invisible {
+    $ButtonClear.Visible = $false
+    $ButtonPreload.Visible = $false
+    $ButtonSettings.Visible = $false
+}
+
+function ButtonSettings_Invisible {
+    $ButtonClear.Visible = $false
+    $ButtonPreload.Visible = $false
+    $ButtonSettings.Visible = $false
+}
+
 
 ##############################################################################################################################
 #                                                     Window Settings                                                        #
@@ -89,7 +133,7 @@ $Titre.Font = 'Bahnschrift,16'
 
 $ButtonClear = New-Object System.Windows.Forms.Button
 
-$ButtonClear.Location = New-Object System.Drawing.Size(235,100)
+$ButtonClear.Location = New-Object System.Drawing.Size(215,100)
 
 $ButtonClear.Size = New-Object System.Drawing.Size(120,40)
 
@@ -104,6 +148,8 @@ $ButtonClear.Font = 'Bahnschrift,11'
 # Event click
 $ButtonEleve.Add_Click({
 
+    
+    
     })
 
 ###############################################################
@@ -112,11 +158,11 @@ $ButtonEleve.Add_Click({
 
 $ButtonPreload = New-Object System.Windows.Forms.Button
 
-$ButtonPreload.Location = New-Object System.Drawing.Size(435,100)
+$ButtonPreload.Location = New-Object System.Drawing.Size(415,100)
 
 $ButtonPreload.Size = New-Object System.Drawing.Size(120,40)
 
-$ButtonPreload.Text = "Clear Cache"
+$ButtonPreload.Text = "Preload Cache"
 
 $ButtonPreload.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
 
@@ -135,11 +181,11 @@ $ButtonPreload.Add_Click({
 
 $ButtonSettings = New-Object System.Windows.Forms.Button
 
-$ButtonSettings.Location = New-Object System.Drawing.Size(635,100)
+$ButtonSettings.Location = New-Object System.Drawing.Size(615,100)
 
 $ButtonSettings.Size = New-Object System.Drawing.Size(120,40)
 
-$ButtonSettings.Text = "Clear Cache"
+$ButtonSettings.Text = "Settings"
 
 $ButtonSettings.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
 
