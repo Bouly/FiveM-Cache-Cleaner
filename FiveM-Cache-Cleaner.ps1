@@ -75,3 +75,15 @@ $Label.ForeColor = "White"
 $Label.Font = 'Bahnschrift,13'
 
 $Label.BringToFront()
+
+
+##############################################################################################################################
+#                                                     Window Settings                                                        #
+##############################################################################################################################
+
+# Affiche la fenêtre
+
+#Add_Eleve_Invisible
+#List_Eleve_Invisible
+#Settings_Invisible
+$main_form.ShowDialog()
