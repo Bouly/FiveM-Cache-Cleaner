@@ -15,6 +15,9 @@ function MainPage {
     $ButtonPreload.Visible = $true
     $ButtonSettings.Visible = $true
     $ButtonRetour.Visible = $false
+    $TitreClearCache.Visible = $false
+    $TitrePreload.Visible = $false
+    $TitreSettings.Visible = $false
     $Titre.Visible =$true
     $TitreClearCache.Visible = $false
 }
@@ -108,8 +111,6 @@ $Titre.Size = New-Object System.Drawing.Size(965,35)
 
 # La position du label
 $Titre.Location = New-Object System.Drawing.Point(0,30)
-
-
 
 $Titre.BackColor = [System.Drawing.Color]::FromArgb(243,5,81) 
 
