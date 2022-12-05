@@ -81,15 +81,99 @@ $Titre.ForeColor = "White"
 # Police et taille d'écriture
 $Titre.Font = 'Bahnschrift,16'
 
+###############################################################
+#                      Button Clear Cache                     #
+###############################################################
+
+
+
+$ButtonClear = New-Object System.Windows.Forms.Button
+
+$ButtonClear.Location = New-Object System.Drawing.Size(235,100)
+
+$ButtonClear.Size = New-Object System.Drawing.Size(120,40)
+
+$ButtonClear.Text = "Clear Cache"
+
+$ButtonClear.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonClear.BackColor = "White"
+
+$ButtonClear.Font = 'Bahnschrift,11'
+
+# Event click
+$ButtonEleve.Add_Click({
+
+    })
+
+###############################################################
+#                      Button Preload Cache                   #
+###############################################################
+
+$ButtonPreload = New-Object System.Windows.Forms.Button
+
+$ButtonPreload.Location = New-Object System.Drawing.Size(435,100)
+
+$ButtonPreload.Size = New-Object System.Drawing.Size(120,40)
+
+$ButtonPreload.Text = "Clear Cache"
+
+$ButtonPreload.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonPreload.BackColor = "White"
+
+$ButtonPreload.Font = 'Bahnschrift,11'
+
+# Event click
+$ButtonPreload.Add_Click({
+
+    })
+
+###############################################################
+#                         Button Settings                     #
+###############################################################
+
+$ButtonSettings = New-Object System.Windows.Forms.Button
+
+$ButtonSettings.Location = New-Object System.Drawing.Size(635,100)
+
+$ButtonSettings.Size = New-Object System.Drawing.Size(120,40)
+
+$ButtonSettings.Text = "Clear Cache"
+
+$ButtonSettings.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonSettings.BackColor = "White"
+
+$ButtonSettings.Font = 'Bahnschrift,11'
+
+# Event click
+$ButtonSettings.Add_Click({
+
+    })
 
 ##############################################################################################################################
 #                                                        # Control ToolBox                                                   #
 ##############################################################################################################################
 
+
 # Déclare les variables du ToolBox
 $main_form.controls.AddRange(@(
 
-$Titre
+# Main
+$Titre,
+
+# ToolBox
+$ButtonClear,
+$ButtonSettings,
+$ButtonPreload,
+
+
+
+
+
+
+
 
 # Designe
 $BackgroundImage
