@@ -52,6 +52,7 @@ $BackgroundImage.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM
 #                                                       Toolbox                                                              #
 ##############################################################################################################################
 
+
 ###############################################################
 #                             Titre                           #
 ###############################################################
@@ -61,22 +62,24 @@ $BackgroundImage.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM
 $Titre = New-Object System.Windows.Forms.Label
 
 # Le contenu du label
-$Titre.Text = "Test"
+$Titre.Text = "FiveM Cache Cleaner"
 
-$Titre.Size = New-Object System.Drawing.Size(130,15)
+$Titre.TextAlign = "MiddleCenter"
+
+$Titre.Size = New-Object System.Drawing.Size(965,35)
 
 # La position du label
-$Titre.Location = New-Object System.Drawing.Point(7,10)
+$Titre.Location = New-Object System.Drawing.Point(0,20)
 
 
 
-#$Titre.BackColor = "Transparent"
+$Titre.BackColor = [System.Drawing.Color]::FromArgb(243,5,81) 
 
 # Couleur du texte du label
-#$Titre.ForeColor = "White"
+$Titre.ForeColor = "White"
 
 # Police et taille d'écriture
-#$Titre.Font = 'Bahnschrift,13'
+$Titre.Font = 'Bahnschrift,16'
 
 
 ##############################################################################################################################
