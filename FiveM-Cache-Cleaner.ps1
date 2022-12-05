@@ -44,9 +44,9 @@ $main_form.maximumSize = New-Object System.Drawing.Size(965,665)
 # Je suis pas designer
 
 $ImageCeff = New-Object System.Windows.Forms.pictureBox
-$ImageCeff.Location = New-Object Drawing.Point 40,40
+$ImageCeff.Location = New-Object Drawing.Point 0,0
 $ImageCeff.Size = New-Object System.Drawing.Size(965,665)
-$ImageCeff.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM-Cache-Cleaner\Source\Background.jpg")
+$ImageCeff.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM-Cache-Cleaner\Source\Background4.jpg")
 
 ##############################################################################################################################
 #                                                       Toolbox                                                              #
