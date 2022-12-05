@@ -43,7 +43,10 @@ $main_form.maximumSize = New-Object System.Drawing.Size(965,665)
 
 # Je suis pas designer
 
-
+$ImageCeff = New-Object System.Windows.Forms.pictureBox
+$ImageCeff.Location = New-Object Drawing.Point 40,40
+$ImageCeff.Size = New-Object System.Drawing.Size(100,100)
+$ImageCeff.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM-Cache-Cleaner\Source\Background.jpg")
 
 ##############################################################################################################################
 #                                                       Toolbox                                                              #
@@ -53,6 +56,19 @@ $main_form.maximumSize = New-Object System.Drawing.Size(965,665)
 #                          Titre Designe                      #
 ###############################################################
 
+
+
+##############################################################################################################################
+#                                                        # Control ToolBox                                                   #
+##############################################################################################################################
+
+# Déclare les variables du ToolBox
+$main_form.controls.AddRange(@(
+
+# Designe
+$ImageCeff
+
+))
 
 
 ##############################################################################################################################
