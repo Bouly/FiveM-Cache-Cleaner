@@ -10,49 +10,43 @@ Add-Type -AssemblyName System.Drawing
 #                                                            Function                                                        #
 ##############################################################################################################################
 
-#############################################
-#                   Visible                 #
-#############################################
-
-function ButtonClear_Visible {
+function MainPage {
     $ButtonClear.Visible = $true
     $ButtonPreload.Visible = $true
     $ButtonSettings.Visible = $true
+    $ButtonRetour.Visible = $false
+    $Titre.Visible =$true
+    $TitreClearCache.Visible = $false
 }
 
-function ButtonPreload_Visible {
-    $ButtonClear.Visible = $true
-    $ButtonPreload.Visible = $true
-    $ButtonSettings.Visible = $true
-}
-
-function ButtonSettings_Visible {
-    $ButtonClear.Visible = $true
-    $ButtonPreload.Visible = $true
-    $ButtonSettings.Visible = $true
-}
-
-#############################################
-#                  Invisible                #
-#############################################
-
-function ButtonClear_Invisible {
+function ClearCachePage {
     $ButtonClear.Visible = $false
     $ButtonPreload.Visible = $false
     $ButtonSettings.Visible = $false
+    $Titre.Visible = $false
+    $TitreClearCache.Visible = $true
+    $ButtonRetour.Visible = $true
 }
 
-function ButtonPreload_Invisible {
+function PreloadPage {
     $ButtonClear.Visible = $false
     $ButtonPreload.Visible = $false
     $ButtonSettings.Visible = $false
+    $Titre.Visible = $false
+    $TitrePreload.Visible = $true
+    $ButtonRetour.Visible = $true
 }
 
-function ButtonSettings_Invisible {
+function SettingsPage {
     $ButtonClear.Visible = $false
     $ButtonPreload.Visible = $false
     $ButtonSettings.Visible = $false
+    $Titre.Visible = $false
+    $TitreSettings.Visible = $true
+    $ButtonRetour.Visible = $true
 }
+
+
 
 
 ##############################################################################################################################
@@ -125,8 +119,97 @@ $Titre.ForeColor = "White"
 # Police et taille d'écriture
 $Titre.Font = 'Bahnschrift,16'
 
+
 ###############################################################
-#                      Button Clear Cache                     #
+#                      Titre Clear Cache                      #
+###############################################################
+
+
+# Création du label
+$TitreClearCache = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$TitreClearCache.Text = "Clear Cache"
+
+$TitreClearCache.TextAlign = "MiddleLeft"
+
+$TitreClearCache.Size = New-Object System.Drawing.Size(965,35)
+
+# La position du label
+$TitreClearCache.Location = New-Object System.Drawing.Point(0,30)
+
+
+
+$TitreClearCache.BackColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+# Couleur du texte du label
+$TitreClearCache.ForeColor = "White"
+
+# Police et taille d'écriture
+$TitreClearCache.Font = 'Bahnschrift,16'
+
+
+###############################################################
+#                        Titre Preload                        #
+###############################################################
+
+
+# Création du label
+$TitrePreload = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$TitrePreload.Text = "PRELOAD CACHE"
+
+$TitrePreload.TextAlign = "MiddleLeft"
+
+$TitrePreload.Size = New-Object System.Drawing.Size(965,35)
+
+# La position du label
+$TitrePreload.Location = New-Object System.Drawing.Point(0,30)
+
+
+
+$TitrePreload.BackColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+# Couleur du texte du label
+$TitrePreload.ForeColor = "White"
+
+# Police et taille d'écriture
+$TitrePreload.Font = 'Bahnschrift,16'
+
+###############################################################
+#                       Titre Settings                        #
+###############################################################
+
+
+# Création du label
+$TitreSettings = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$TitreSettings.Text = "SETTINGS"
+
+$TitreSettings.TextAlign = "MiddleLeft"
+
+$TitreSettings.Size = New-Object System.Drawing.Size(965,35)
+
+# La position du label
+$TitreSettings.Location = New-Object System.Drawing.Point(0,30)
+
+
+
+$TitreSettings.BackColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+# Couleur du texte du label
+$TitreSettings.ForeColor = "White"
+
+# Police et taille d'écriture
+$TitreSettings.Font = 'Bahnschrift,16'
+
+
+
+
+###############################################################
+#                      Button Clear                           #
 ###############################################################
 
 
@@ -146,10 +229,10 @@ $ButtonClear.BackColor = "White"
 $ButtonClear.Font = 'Bahnschrift,11'
 
 # Event click
-$ButtonEleve.Add_Click({
+$ButtonClear.Add_Click({
 
-    
-    
+
+ClearCachePage
     })
 
 ###############################################################
@@ -172,7 +255,7 @@ $ButtonPreload.Font = 'Bahnschrift,11'
 
 # Event click
 $ButtonPreload.Add_Click({
-
+PreloadPage
     })
 
 ###############################################################
@@ -195,7 +278,31 @@ $ButtonSettings.Font = 'Bahnschrift,11'
 
 # Event click
 $ButtonSettings.Add_Click({
+SettingsPage
+    })
 
+
+###############################################################
+#                         Button Return                       #
+###############################################################
+
+$ButtonRetour = New-Object System.Windows.Forms.Button
+
+$ButtonRetour.Location = New-Object System.Drawing.Size(10,80)
+
+$ButtonRetour.Size = New-Object System.Drawing.Size(120,40)
+
+$ButtonRetour.Text = "⬅ Retour"
+
+$ButtonRetour.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonRetour.BackColor = "White"
+
+$ButtonRetour.Font = 'Bahnschrift,11'
+
+# Event click
+$ButtonRetour.Add_Click({
+MainPage
     })
 
 ##############################################################################################################################
@@ -208,11 +315,15 @@ $main_form.controls.AddRange(@(
 
 # Main
 $Titre,
+$TitreClearCache,
+$TitrePreload,
+$TitreSettings,
 
 # ToolBox
 $ButtonClear,
 $ButtonSettings,
 $ButtonPreload,
+$ButtonRetour,
 
 
 
@@ -232,5 +343,7 @@ $BackgroundImage
 ##############################################################################################################################
 
 # Affiche la fenêtre
+
+MainPage
 
 $main_form.ShowDialog()
