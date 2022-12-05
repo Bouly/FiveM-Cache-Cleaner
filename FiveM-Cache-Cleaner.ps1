@@ -69,7 +69,7 @@ $Titre.TextAlign = "MiddleCenter"
 $Titre.Size = New-Object System.Drawing.Size(965,35)
 
 # La position du label
-$Titre.Location = New-Object System.Drawing.Point(0,20)
+$Titre.Location = New-Object System.Drawing.Point(0,30)
 
 
 
