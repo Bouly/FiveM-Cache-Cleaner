@@ -42,3 +42,36 @@ $main_form.maximumSize = New-Object System.Drawing.Size(965,665)
 ##############################################################################################################################
 
 # Je suis pas designer
+
+$ImageCeff = New-Object System.Windows.Forms.pictureBox
+$ImageCeff.Location = New-Object Drawing.Point 40,40
+$ImageCeff.Size = New-Object System.Drawing.Size(100,100)
+$ImageCeff.image = [system.drawing.image]::FromFile("C:\Users\cp-20ahb\Desktop\ceff.png")
+
+##############################################################################################################################
+#                                                       Toolbox                                                              #
+##############################################################################################################################
+
+###############################################################
+#                            Titre                            #
+###############################################################
+
+# Création du label
+$Label = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$Label.Text = "Formulaire d'utilisateur du CEFF"
+
+# La position du label
+$Label.Location = New-Object System.Drawing.Point(100,10)
+
+# Étire automatiquement le label
+$Label.AutoSize = $true
+
+# Couleur du texte du label
+$Label.ForeColor = "White"
+
+# Police et taille d'écriture
+$Label.Font = 'Bahnschrift,13'
+
+$Label.BringToFront()
