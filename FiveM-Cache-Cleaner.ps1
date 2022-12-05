@@ -31,7 +31,7 @@ $main_form.Height = 400
 $main_form.AutoSize = $true
 
 #Couleur du fond
-$main_form.BackColor = "54,75,109"
+#$main_form.BackColor = "54,75,109"
 
 # Bloque la taille max et min
 $main_form.minimumSize = New-Object System.Drawing.Size(965,665)
@@ -53,9 +53,30 @@ $BackgroundImage.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM
 ##############################################################################################################################
 
 ###############################################################
-#                          Titre Designe                      #
+#                             Titre                           #
 ###############################################################
 
+
+# Création du label
+$Titre = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$Titre.Text = "Test"
+
+$Titre.Size = New-Object System.Drawing.Size(130,15)
+
+# La position du label
+$Titre.Location = New-Object System.Drawing.Point(7,10)
+
+
+
+#$Titre.BackColor = "Transparent"
+
+# Couleur du texte du label
+#$Titre.ForeColor = "White"
+
+# Police et taille d'écriture
+#$Titre.Font = 'Bahnschrift,13'
 
 
 ##############################################################################################################################
@@ -64,6 +85,8 @@ $BackgroundImage.image = [system.drawing.image]::FromFile("C:\Repositories\FiveM
 
 # Déclare les variables du ToolBox
 $main_form.controls.AddRange(@(
+
+$Titre
 
 # Designe
 $BackgroundImage
