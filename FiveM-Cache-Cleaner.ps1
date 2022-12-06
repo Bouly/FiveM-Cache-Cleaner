@@ -11,7 +11,12 @@ Add-Type -AssemblyName System.Drawing
 #                                                            Variables                                                       #
 ##############################################################################################################################
 
-$pathCache = "C:\Users\cp-20ahb\Desktop\Cache\delete"
+$pathCache1 = "C:\Users\cp-20ahb\Desktop\Cache\cache1"
+$pathCache2 = "C:\Users\cp-20ahb\Desktop\Cache\cache2"
+$pathCache3 = "C:\Users\cp-20ahb\Desktop\Cache\cache3"
+$pathCache4 = "C:\Users\cp-20ahb\Desktop\Cache\cache4"
+
+$i = 0
 
 ##############################################################################################################################
 #                                                            Function                                                        #
@@ -28,6 +33,7 @@ function MainPage {
     $Titre.Visible =$true
     $TitreClearCache.Visible = $false
     $ButtonClearCache.Visible = $false
+    $ProgressBar.Visible = $false
 }
 
 function ClearCachePage {
@@ -59,6 +65,17 @@ function SettingsPage {
 }
 
 
+Function StartProgressBar
+{
+	if($i -le 0){
+	    $ProgressBar.Value = $i
+	    $script:i += 1
+	}
+	else {
+		$timer.enabled = $false
+	}
+	
+}
 
 
 ##############################################################################################################################
@@ -313,8 +330,25 @@ MainPage
     })
 
 
+##########################################################
+
+$ProgressBar = New-Object System.Windows.Forms.ProgressBar
+$ProgressBar.Maximum = 100
+$ProgressBar.Minimum = 0
+$ProgressBar.Location = new-object System.Drawing.Size(215,500)
+$ProgressBar.size = new-object System.Drawing.Size(600,20)
+$i = 0
 
 
+$timer = New-Object System.Windows.Forms.Timer 
+$timer.Interval = 1000
+
+$timer.add_Tick({
+    StartProgressBar
+    })
+
+    $timer.Enabled = $true
+$timer.Start()
 
 
 ###############################################################
@@ -338,8 +372,26 @@ $ButtonClearCache.Font = 'Bahnschrift,11'
 # Event click
 $ButtonClearCache.Add_Click({
 # Efface le cache
-Remove-Item $pathCache -Recurse
-[System.Windows.Forms.MessageBox]::Show('Le cache à était clear avec succès !','Succès','Ok','Information')
+
+$ProgressBar.Visible = $true
+
+While ($i -le 100) {
+    $ProgressBar.Value = $i
+    Start-Sleep -Seconds 0.01
+    "VALLUE EQ"
+    $i
+    $i += 1
+}
+
+Remove-Item $pathCache1 -Recurse
+Remove-Item $pathCache2 -Recurse
+Remove-Item $pathCache3 -Recurse
+Remove-Item $pathCache4 -Recurse
+#Start-Sleep -Seconds 5.5
+[System.Windows.Forms.MessageBox]::Show('Le cache à était vidé avec succès !','Succès','Ok','Information')
+
+$ProgressBar.Visible = $false
+
     })
 
 ##############################################################################################################################
@@ -362,6 +414,7 @@ $ButtonSettings,
 $ButtonPreload,
 $ButtonRetour,
 $ButtonClearCache,
+$ProgressBar,
 
 
 
