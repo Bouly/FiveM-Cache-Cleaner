@@ -338,8 +338,6 @@ $ButtonClearCache.Font = 'Bahnschrift,11'
 # Event click
 $ButtonClearCache.Add_Click({
 # Efface le cache
-#(Get-ChildItem $pathCache).Delete()
-
 Remove-Item $pathCache -Recurse
 [System.Windows.Forms.MessageBox]::Show('Le cache à était clear avec succès !','Erreur','Ok','Information')
     })
