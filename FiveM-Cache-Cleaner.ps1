@@ -373,25 +373,31 @@ $ButtonClearCache.Font = 'Bahnschrift,11'
 $ButtonClearCache.Add_Click({
 # Efface le cache
 
-$ProgressBar.Visible = $true
+$TestPathResult1 = test-path $pathCache1
+$TestPathResult2 = test-path $pathCache2
+$TestPathResult3 = test-path $pathCache3
+$TestPathResult4 = test-path $pathCache4
 
-While ($i -le 100) {
-    $ProgressBar.Value = $i
-    Start-Sleep -Seconds 0.01
-    "VALLUE EQ"
-    $i
-    $i += 1
+if ($TestPathResult1 -eq $false -And $TestPathResult2 -eq $false -And $TestPathResult3 -eq $false -And $TestPathResult4 -eq $false){
+    [System.Windows.Forms.MessageBox]::Show('Le cache à déjà était vidé !','Erreur','Ok','Error')
+}
+else{
+    $ProgressBar.Visible = $true
+    While ($i -le 100) {
+        $ProgressBar.Value = $i
+        Start-Sleep -Seconds 0.01
+        "VALLUE EQ"
+        $i
+        $i += 1
+    }
+    Remove-Item $pathCache1 -Recurse
+    Remove-Item $pathCache2 -Recurse
+    Remove-Item $pathCache3 -Recurse
+    Remove-Item $pathCache4 -Recurse
+    [System.Windows.Forms.MessageBox]::Show('Le cache à était vidé avec succès !','Succès','Ok','Information')
 }
 
-Remove-Item $pathCache1 -Recurse
-Remove-Item $pathCache2 -Recurse
-Remove-Item $pathCache3 -Recurse
-Remove-Item $pathCache4 -Recurse
-#Start-Sleep -Seconds 5.5
-[System.Windows.Forms.MessageBox]::Show('Le cache à était vidé avec succès !','Succès','Ok','Information')
-
 $ProgressBar.Visible = $false
-
     })
 
 ##############################################################################################################################
