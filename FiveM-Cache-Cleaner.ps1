@@ -18,6 +18,20 @@ $pathCache4 = "C:\Users\cp-20ahb\Desktop\Cache\cache4"
 
 $i = 0
 
+$TestPathResult1 = test-path $pathCache1
+$TestPathResult2 = test-path $pathCache2
+$TestPathResult3 = test-path $pathCache3
+$TestPathResult4 = test-path $pathCache4
+
+if( $TestPathResult1 -eq $false ){
+ $Status = "Clear"
+ $StatusColor = "Green"
+}
+else{
+$Status = "Not"
+$StatusColor = "Red"
+}
+
 ##############################################################################################################################
 #                                                            Function                                                        #
 ##############################################################################################################################
@@ -34,6 +48,8 @@ function MainPage {
     $TitreClearCache.Visible = $false
     $ButtonClearCache.Visible = $false
     $ProgressBar.Visible = $false
+    $LabelStatus.Visible = $false
+    $LabelStatusVar.Visible = $false
 }
 
 function ClearCachePage {
@@ -44,6 +60,8 @@ function ClearCachePage {
     $TitreClearCache.Visible = $true
     $ButtonClearCache.Visible = $true
     $ButtonRetour.Visible = $true
+    $LabelStatus.Visible = $true
+    $LabelStatusVar.Visible = $true
 }
 
 function PreloadPage {
@@ -229,8 +247,58 @@ $TitreSettings.ForeColor = "White"
 # Police et taille d'écriture
 $TitreSettings.Font = 'Bahnschrift,16'
 
+###############################################################
+#                       Label Status                          #
+###############################################################
 
 
+# Création du label
+$LabelStatus = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$LabelStatus.Text = "Status:"
+
+$LabelStatus.TextAlign = "MiddleLeft"
+
+$LabelStatus.Size = New-Object System.Drawing.Size(76,35)
+
+# La position du label
+$LabelStatus.Location = New-Object System.Drawing.Point(804,80)
+
+$LabelStatus.BackColor = [System.Drawing.Color]::FromArgb(28,31,40) 
+
+# Couleur du texte du label
+$LabelStatus.ForeColor = "White"
+
+# Police et taille d'écriture
+$LabelStatus.Font = 'Bahnschrift,16'
+
+
+###############################################################
+#                       Label StatusVar                       #
+###############################################################
+
+
+# Création du label
+$LabelStatusVar = New-Object System.Windows.Forms.Label
+
+# Le contenu du label
+$LabelStatusVar.Text = "$Status"
+
+$LabelStatusVar.TextAlign = "MiddleLeft"
+
+$LabelStatusVar.Size = New-Object System.Drawing.Size(76,35)
+
+# La position du label
+$LabelStatusVar.Location = New-Object System.Drawing.Point(875,80)
+
+$LabelStatusVar.BackColor = [System.Drawing.Color]::FromArgb(28,31,40) 
+
+# Couleur du texte du label
+$LabelStatusVar.ForeColor = "$StatusColor"
+
+# Police et taille d'écriture
+$LabelStatusVar.Font = 'Bahnschrift,16'
 
 ###############################################################
 #                      Button Clear                           #
@@ -410,6 +478,8 @@ $main_form.controls.AddRange(@(
 
 # Main
 $Titre,
+$LabelStatusVar,
+$LabelStatus,
 $TitreClearCache,
 $TitrePreload,
 $TitreSettings,
