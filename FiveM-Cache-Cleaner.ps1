@@ -60,7 +60,7 @@ function SettingsPage {
 $main_form = New-Object System.Windows.Forms.Form
 
 #Le titre de la fenêtre
-$main_form.Text ='Formulaire CEFF'
+$main_form.Text ='FiveM Cache Cleaner'
 
 # Largeur de la fenêtre
 $main_form.Width = 400
@@ -70,9 +70,6 @@ $main_form.Height = 400
 
 # Étire automatiquement la fenêtre
 $main_form.AutoSize = $true
-
-#Couleur du fond
-#$main_form.BackColor = "54,75,109"
 
 # Bloque la taille max et min
 $main_form.minimumSize = New-Object System.Drawing.Size(965,665)
