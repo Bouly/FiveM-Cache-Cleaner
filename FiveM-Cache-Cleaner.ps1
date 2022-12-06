@@ -6,6 +6,13 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
+
+##############################################################################################################################
+#                                                            Variables                                                       #
+##############################################################################################################################
+
+$pathCache = "C:\Users\cp-20ahb\Desktop\Cache\delete"
+
 ##############################################################################################################################
 #                                                            Function                                                        #
 ##############################################################################################################################
@@ -20,6 +27,7 @@ function MainPage {
     $TitreSettings.Visible = $false
     $Titre.Visible =$true
     $TitreClearCache.Visible = $false
+    $ButtonClearCache.Visible = $false
 }
 
 function ClearCachePage {
@@ -28,6 +36,7 @@ function ClearCachePage {
     $ButtonSettings.Visible = $false
     $Titre.Visible = $false
     $TitreClearCache.Visible = $true
+    $ButtonClearCache.Visible = $true
     $ButtonRetour.Visible = $true
 }
 
@@ -303,6 +312,37 @@ $ButtonRetour.Add_Click({
 MainPage
     })
 
+
+
+
+
+
+###############################################################
+#                         Button Clear Cache                  #
+###############################################################
+
+$ButtonClearCache = New-Object System.Windows.Forms.Button
+
+$ButtonClearCache.Location = New-Object System.Drawing.Size(415,300)
+
+$ButtonClearCache.Size = New-Object System.Drawing.Size(160,100)
+
+$ButtonClearCache.Text = "Clear Cache"
+
+$ButtonClearCache.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonClearCache.BackColor = "White"
+
+$ButtonClearCache.Font = 'Bahnschrift,11'
+
+# Event click
+$ButtonClearCache.Add_Click({
+# Efface le cache
+#(Get-ChildItem $pathCache).Delete()
+
+Remove-Item $pathCache -Recurse
+    })
+
 ##############################################################################################################################
 #                                                        # Control ToolBox                                                   #
 ##############################################################################################################################
@@ -322,6 +362,7 @@ $ButtonClear,
 $ButtonSettings,
 $ButtonPreload,
 $ButtonRetour,
+$ButtonClearCache,
 
 
 
