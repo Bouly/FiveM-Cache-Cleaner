@@ -341,6 +341,7 @@ $ButtonClearCache.Add_Click({
 #(Get-ChildItem $pathCache).Delete()
 
 Remove-Item $pathCache -Recurse
+[System.Windows.Forms.MessageBox]::Show('Le cache à était clear avec succès !','Erreur','Ok','Information')
     })
 
 ##############################################################################################################################
