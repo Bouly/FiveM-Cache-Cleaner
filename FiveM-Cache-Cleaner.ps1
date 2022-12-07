@@ -11,10 +11,12 @@ Add-Type -AssemblyName System.Drawing
 #                                                            Variables                                                       #
 ##############################################################################################################################
 
-$pathCache1 = "C:\Users\cp-20ahb\Desktop\Cache\cache1"
-$pathCache2 = "C:\Users\cp-20ahb\Desktop\Cache\cache2"
-$pathCache3 = "C:\Users\cp-20ahb\Desktop\Cache\cache3"
-$pathCache4 = "C:\Users\cp-20ahb\Desktop\Cache\cache4"
+$FolderBrowser.SelectedPath = "C:\Users\cp-20ahb\Desktop\Cache"
+
+$pathCache1 = $FolderBrowser.SelectedPath + '\cache1'
+$pathCache2 = $FolderBrowser.SelectedPath + '\cache2'
+$pathCache3 = $FolderBrowser.SelectedPath + '\cache3'
+$pathCache4 = $FolderBrowser.SelectedPath + '\cache4'
 
 $i = 0
 
@@ -31,6 +33,9 @@ else{
 $Status = "Not"
 $StatusColor = "Red"
 }
+
+
+
 
 ##############################################################################################################################
 #                                                            Function                                                        #
@@ -50,6 +55,7 @@ function MainPage {
     $ProgressBar.Visible = $false
     $LabelStatus.Visible = $false
     $LabelStatusVar.Visible = $false
+    $ButtonCacheLoc.Visible = $false
 }
 
 function ClearCachePage {
@@ -71,6 +77,7 @@ function PreloadPage {
     $Titre.Visible = $false
     $TitrePreload.Visible = $true
     $ButtonRetour.Visible = $true
+    $ButtonCacheLoc.Visible = $true
 }
 
 function SettingsPage {
@@ -322,8 +329,6 @@ $ButtonClear.Font = 'Bahnschrift,11'
 
 # Event click
 $ButtonClear.Add_Click({
-
-
 ClearCachePage
     })
 
@@ -398,6 +403,34 @@ MainPage
     })
 
 
+
+###############################################################
+#                         Button CacheLocation                #
+###############################################################
+
+$ButtonCacheLoc = New-Object System.Windows.Forms.Button
+
+$ButtonCacheLoc.Location = New-Object System.Drawing.Size(615,100)
+
+$ButtonCacheLoc.Size = New-Object System.Drawing.Size(120,40)
+
+$ButtonCacheLoc.Text = "Location"
+
+$ButtonCacheLoc.ForeColor = [System.Drawing.Color]::FromArgb(243,5,81) 
+
+$ButtonCacheLoc.BackColor = "White"
+
+$ButtonCacheLoc.Font = 'Bahnschrift,11'
+
+
+$FolderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog
+
+# Event click
+$ButtonCacheLoc.Add_Click({
+    $FolderBrowser.ShowDialog()
+    })
+
+
 ##########################################################
 
 $ProgressBar = New-Object System.Windows.Forms.ProgressBar
@@ -441,10 +474,7 @@ $ButtonClearCache.Font = 'Bahnschrift,11'
 $ButtonClearCache.Add_Click({
 # Efface le cache
 
-$TestPathResult1 = test-path $pathCache1
-$TestPathResult2 = test-path $pathCache2
-$TestPathResult3 = test-path $pathCache3
-$TestPathResult4 = test-path $pathCache4
+
 
 if ($TestPathResult1 -eq $false -And $TestPathResult2 -eq $false -And $TestPathResult3 -eq $false -And $TestPathResult4 -eq $false){
     [System.Windows.Forms.MessageBox]::Show('Le cache à déjà était vidé !','Erreur','Ok','Error')
@@ -463,7 +493,10 @@ else{
     Remove-Item $pathCache3 -Recurse
     Remove-Item $pathCache4 -Recurse
     [System.Windows.Forms.MessageBox]::Show('Le cache à était vidé avec succès !','Succès','Ok','Information')
+
+
 }
+
 
 $ProgressBar.Visible = $false
     })
@@ -487,15 +520,13 @@ $TitreSettings,
 # ToolBox
 $ButtonClear,
 $ButtonSettings,
-$ButtonPreload,
+#$ButtonPreload,
 $ButtonRetour,
 $ButtonClearCache,
 $ProgressBar,
 
 
-
-
-
+$ButtonCacheLoc,
 
 
 
