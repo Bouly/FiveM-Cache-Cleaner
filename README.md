@@ -8,3 +8,6 @@ Because its ⬇️
 + Have more feature
 ## How to use it ?
 Just download the PowerShell file and run it, as simple as that
+## To do list
++ Verifier si un fichier a deja le meme nom --> popup error
++ Corriger ligne 45 
