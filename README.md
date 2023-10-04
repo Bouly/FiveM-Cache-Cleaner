@@ -7,4 +7,4 @@ Because its ⬇️
 + More intuitive
 + Have more feature
 ## How to use it ?
-Just download the PowerShell file and run it, as simple as that
+Just download the PowerShell file and run it.
